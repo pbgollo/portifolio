@@ -36,4 +36,25 @@ window.onscroll = () => {
 
 };
 
+// Scroll Reveal
 
+ScrollReveal({
+    distance: '80px',
+    duration: 2000,
+    delay: 200,
+});
+
+ScrollReveal().reveal('.home-content, heading', { origin: 'top' });
+ScrollReveal().reveal('.home-img, .projetos-box, .contato form', {origin: 'bottom' });
+ScrollReveal().reveal('.home-contact h1, .sobre-img', {origin: 'left' });
+ScrollReveal().reveal('home-contact p, .sobre-content', {origin: 'right' });
+
+// Typed JS
+
+const typed = new Typed('.multiple-text', {
+    strings: ['Estudante de Programação', 'Estagiário em TI'],
+    typeSpeed: 70,
+    backSpeed: 70,
+    backDelay: 1000,
+    loop: true,
+})
