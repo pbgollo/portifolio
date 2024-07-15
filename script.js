@@ -58,3 +58,29 @@ const typed = new Typed('.multiple-text', {
     backDelay: 1000,
     loop: true,
 })
+
+// Envio de e-mail via EmailJS
+
+emailjs.init('mwZAB8xuor4DOKiZb');
+
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    let formData = {
+        to_name: this.to_name.value,
+        from_email: this.from_email.value,
+        phone_number: this.phone_number.value,
+        subject: this.subject.value,
+        message: this.message.value
+    };
+
+    emailjs.send('service_0zbo2ho', 'template_ja9crxo', formData)
+        .then(function(response) {
+            console.log('E-mail enviado com sucesso!', response.status, response.text);
+            alert('E-mail enviado com sucesso!');
+            document.getElementById('contact-form').reset(); 
+        }, function(error) {
+            console.log('Erro ao enviar o e-mail:', error);
+            alert('Erro ao enviar o e-mail. Por favor, tente novamente mais tarde.');
+        });
+});
